@@ -6,6 +6,7 @@
     <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3"> <!--media query via bootstrap-->
 
       <b-form-select v-model="brew_method" id="brew-method"> <!--binds brew_method to data in javascript-->
+        <option :value="null">Select your brewing method</option>   <!--initializes drop down menu-->
         <option value="fp">French Press</option>
         <option value="ap">Aeropress</option>
         <option value="dr">Drip</option>
@@ -26,14 +27,14 @@
 <script>
 
 const format_number = (number) => {
-  return parseFloat(number).toFixed(2);
+  return parseFloat(number).toFixed(1);
 } 
 export default {
   name: 'CoffeeCalculator',
   props: {},
   data() {
     return {
-    brew_method: 'fp',
+    brew_method: null,
     ground_coffee: 0.00,
     water: 0.00
     }
